@@ -1,0 +1,12 @@
+REAPIT_TOKEN:
+HUBSPOT_TOKEN: "pat-eu1-511425c4-569a-456f-a2db-dacd2eaab42d"
+MONGO_URI: "mongodb://algo8dev:%3B.3%3FH8qV%7B9%2C%3Bo8j%3D42%2FDl589QYvt4H.%40%3B.3%3FH8qV%7B9%2C%3Bo8j%3D42%2FDl589QYvt4H.%40@4.240.72.49:27017/?authMechanism=DEFAULT"
+clientId: "2p79s34iesoqt4rn1ntmkqlpfi"
+clientSecret: "1uc90i0mo1hd1cfm74p7cbjc9cshvtckdpih5i34knltrp37tnp9"
+username: "bramhesh.srivastav@algo8.ai"
+password: "Dev@1234@"
+master_url: "https://coral-app-66fig.ondigitalocean.app/data"
+appId: "ba3081e4-7c6c-466d-afcc-3eaf3f61e5fe"
+clientCode: "HAH"
+productionSecret: "nn5n5gv25d15p3p1f4mvou8ln398elvi7q1kckeecq89s9qa2m7"
+productionClient: "1icpmqlfkg16vtejdbstursdil"
