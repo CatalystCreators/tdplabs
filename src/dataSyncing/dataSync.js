@@ -3245,28 +3245,31 @@ async function createNegotiatorsFromDealOwners(){
         for (var deal_owner of deal_owners) {
           if (!negotiatorsSet.has(deal_owner.email)) {
             var newNegotiator = {
-              name: (deal_owner?.firstName || deal_owner?.lastName) ? `${deal_owner?.firstName} ${deal_owner?.lastName}` : deal_owner.email.substring(0, deal_owner.email.indexOf("@")),
+              name: (deal_owner?.firstName || deal_owner?.lastName) ? `${deal_owner?.firstName} ${deal_owner?.lastName}` : deal_owner.email.substring(0, deal_owner.email.indexOf("@")).split(".")[0],
               workPhone: null,
               mobilePhone: null,
               email: deal_owner?.email,
               officeId: 'TLH'
             }
-
+            console.log("this is ----------->" + newNegotiator.name);
             const createNegotiator = await createNewNegotiator(newNegotiator);
-            console.log(createNegotiator);
+            // console.log(createNegotiator);
           } else {
             console.log("Negotiator already exists.");
           }
         }
     
         console.log("Creating Negotiators function finished executing.");
-        return
+        // return;
     } catch (error) {
         console.log(error);
         return error
     }
     
 }
+
+// generate access token outside loop
+// createSource API 
 
 // *----------------------------------------------------------------------------------------
 // * Function to sync Reapit Journals to Hubspot Notes.

@@ -27,7 +27,7 @@ const {
     updateArchive
 } = require('./dataSyncing/dataSync');
 
-const { createNewNegotiator } = require("./dataPulling/reapitData");
+const { createNewNegotiator, createNewSource } = require("./dataPulling/reapitData");
 
 const {
     transferToHubspot,
@@ -64,13 +64,19 @@ async function productionLogin() {
         const data = new URLSearchParams();
         data.append('grant_type', grantType);
 
-        const config = {
+        let config = {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Authorization': "Basic `${authHeader}`"
             }
         }
 
+        config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': "Basic " + authHeader
+            }
+        }
         const response = await axios.post(reapitApiUrl, data, config)
 
         const { access_token, expires_in } = response.data;
@@ -260,12 +266,16 @@ app.post('/test-negotiator', async (req, res) => {
         const newNegotiator = req.body;
 
         // console.log(newNegotiator);
-        const createNegotiator = await createNewNegotiator(newNegotiator);
-        console.log(createNegotiator);
-        res.send(createNegotiator);
+        // const createNegotiator = await createNewNegotiator(newNegotiator);
+        // const createNegotiator = await createNegotiatorsFromDealOwners();
+        // console.log(createNegotiator);
+        // res.send(createNegotiator);
+    
+        const createSource = await createNewSource(newNegotiator);
+        
     }
     catch (err) {
-        console.log(err);
+        console.log("this is ---------------------------------" + err);
     }
 
 })

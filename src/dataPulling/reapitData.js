@@ -763,27 +763,61 @@ async function findApplicant(filter, filter1){
 
 // *----------------------------------------------------------------------------------------------------
 // *--------------------------------* POST DATA APIS *--------------------------------------------------
+async function loginFromRefreshToken() {
+    try {
+        const formData = new URLSearchParams();
+        formData.append('redirect_uri', 'https://developers.reapit.cloud/apps');
+        formData.append('client_id', '4l6j0unqol4k02bsl6q89odem5');
+        formData.append('grant_type', 'refresh_token');
+        formData.append('refresh_token', 'eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.f_q_VsdgpCwHgaxYVlA1o0Q5BdgNpSR52G8Am07CZU1iKiI1_DjUWtT89bWOEZHCPMk61V0li5VzNgcnV_LPbPr-b7UOcN5bt1rBKVe0dc4cPdo54oSBuHmhr-mv_T0v3KM_HVX-acb_5BMh3zkqSYeykCcsWJsmW-RtAtLr5uXOQUnJu7rQzBagzn7ZBsTY1msT-IK_f4Ud2pEtTuzvBsDWhkKkrwULtD_b_Pt0n6TwtGmzBXqvyh3w_qa1Kza89ol3ccz-ODntFnEqwhV-j35M7WUAJxeRmFLd2sMGXBQCz6p_sTK_vPsqoxBXir9QlplBsp06Yhz2o8K48kPmeQ.CxT5eWgi8oOSkTGX.M25U7P_ohPqD99roAQ0jHVqb7EvXFhngNsxLEkxDyA88TSuwKUFTUBgDOy7X_Ty6x-zqXCjrIERvoVWFDfLt_gCr5q8CIhgAbyjXRxyfvP14-UT3Bmc02kQSLDbY1cOejw_uSIAxuibXx-RFCWXrQc17Z33r4Kh-VTgWnWty9JA7DLH9wcLyw1T1vNCmBpBjaedWb9Jp10AtTEF81k2c2dV3f4l0BXtEQQy6GVG2sOH5cj4Rk02G9TJ8c2Sm6iusbZt65mvBevZqrdaAfG_25oFxJSBfYIdIDmEeEs7ozeu3tL863pa4hw_vyaRuWc9_yBa21ycKynNELMFfL4g-HyDrZfcC3GF67TDogiC2vkT14UFevhqvMyjXpq6ojlroWZO0YuSAMaw0-klQAC1I81maTE9UgJpmZrDts3LMemUb_RI1ZMY7-V7X3GuYJYv5_OZMwqSkMJSu4nSUwGV36uZ5knMxUDaz3flTZTyx7niNodFsVm7uDnuhQuDp2i74OJY6SsNHBRC0Ol9YxBHfgD-YbciUIZSisd_J8tVIVKVd9JBrxJfnmmahYrmMc0aQkJVhMgtsIaagOkRyE2IR68PPo2IJZJZWFpEkFrIE1Q5ApbymrFU8pecTHsVlqnuJ1eikFo84etF44zyu59dwZV7fXMMuQXVgNoBwA37yETOOprrUHnBPimAKehvv-GKQ4RxTwcy6kYcIbksldvsX4e6NTZJ8Z4NR9o10VJpZWhEUL94SHhQoCwm069_azxbG8qjxphcUzAG5JOjiIHylLYp3v6pnCtvN4NmvWgVRcLyrfNfT8Y8SEIzS-XCEAEP6_oEMG5U1hQ-CwL2w6aoNzrimZ8E2MGONxZdkzzPSV6ddxTD62_VIPrf_pxWm3wEzF2lWDftQ4BOaHi5isljEeyFFIy9gBTy5Vy-jrsuqxUyc6ZsUahIUUZcdZMT8B_zM9vi9kojA6uFu5l0PiUptDa9QdSF-37t6orlzyiT8DLWdUP0wPJnAtC6esFw1bQqma_ShPrIKdnwf-qjv8GugE-7DGMDIoAYjFTLbNVEFpccQAEabWrk-89Q2CyZlbig4LXd18mVs7Fp0GEnE_hGokMQpcm4ZDwgL6SpL3VYyWybZGr25hzyswlv21R0h11DgkIlHYSqCTg6O0BbNnaA1VeQxfjt1wo9Ig54b8vyVQD7BB9X0ifse56Jb62XDh7kfvRh_jhY1Mh7aFIzGPSxA_hIP6PsYQTcaEIIpsK_7WYtgCg42f8pfASAN0VHIUW0sJPX8XKAYDD6ZUf44NIIwao0gLfSU79xB6VWZSiFtvOBIOmjWlKQG-bo4ZDPalNSKVLqG4uwd-rmprDRnR8vA_idVmIDv1-kXK5ud0fxJB3s7CAuQIbGjE_tjjLZIidubgeu4b1Ip0AHwllPzW7mVa4AaYi2w2tkqUq-DBtze2dbBYqtDsIpFOwvdmAO4Ac4m4sfAX_OGBU0Can7AI6wjaGXSClQO2hKU2kcoqobT5Y9gdeNBIMDc0hbK3RJJSAtM84SREpXj6cmRmVHiEUHylMxr4dmcUZnTaHPd36jEVVG9nIFoqqO84mWl5oKhUHBumlLkU5ITBDyAqm9axgBeT2vGT_43cHnKtmKt3Kgljk4Pu4jBAwWeMh0n2tXxBRgT0ypxA_DeWOsxASkJwq77-adhqTxvcaN-hJrOTruPOV7flMP2vUm_NPb3zKQ-cdLXyMMhkADCoX14Kbp2Ca9AuW7dFaZVEhdTy8C_ci0f8vR6C9ThvzewN5J7KNPkF8k5fbYVqt4qIRzmGttSzzkLY7zGKT_nvf77LggmvRn2iq-eV8w28HtiJX6yHm4_VGisX4Bz84IwQZQVMTxkk1E5dhgXcKmNaQoWd7FJJDF0GFg3jtQMpNylxYA84LZU2eyDrNOm2M6GB6R8389SoELnIq69FKOU9nQ-3XMITWFTTbBzP6SR6y3MdXrpr40lZv3BrlIYxZ3Gr0YlnJ-C1tKezPsaaB6EJHd5J6a-BeBFAgSjmtj5bv0zrj1Wu9H9ZtA90sZ02a2xrYQ79Ey1zepshlDQQSc5lsg0-t4CW4Xe2BlT2PGKE5GBADFNA8N9dPxWPpPDb-hEbaYT4sGcX84K5SLCt2LVgYCzFh7P-XXqHFKhYrxp80b8M23O5sM_3Vlinq4dNUoK-MpDJKcTka2C4Yae1FgJ84QR7wa4kEhDFyQgxsW1Ev4kmGUdaBJrI3g4E_YyF96_JN-8Rt1lSDKfmW-nRU9roBk3zH6SfFHJ3ZExPvVOrjoCATaMJ7iM2JvYSNs3uLEr9M9bHLExeo9RiQczBxPEh9AvnN-YtyUaV5eG-ECLZLVTcRuH09DisOdRXkpmiQw-Q_n6aOoM9RzDyrjDLuaH2IrV3eJDuVSZZm7G1El3n9bVFy-Uz24YhDMwD2N6qbkKFOZ4VYncLWunVcXzfKzQBunxCccGqpCTDSsXSmB7xhSlc4k09b2Vp1o7wVj57-To1RyVbsWbvci6CjiT6I4hxbMX0KdIXB6JpuSZgA5mu3RfhAZk2TKe0tsNeE7r2GtjT53GkKoIgdkfTuENDxIZ7M4Fs9FwoprNtvqdQDENX_uBaKvY-dFmfW-MxJ9ymgIdiPjQfT3qoQ6bDNC7V_Uehz6hECSf8d2tHzJL6xfBtKCMmPmP4eczTqsG_WlwR7T3LJIHqul8bzHykE8htkLeckYFA_c6iT4gODRxBAffa-LrRfT1h6HVbblJVx40nOmgey3ZJuqorQt_hmMAlWVuokAUeBjIBGn6ALS04id4MGYnv5qNmPNyI4ydtAwlkLGpl3vdWRJ2TV1aeihs9ALjr7C7FE0aAnX7ScE60xQoWtLX59gsPt1HGDMk6ZNQEf0rBjiPEtxhS5KjwPW-ywCUx1s3AWJUjjn-t1U6BHL4rXDl-q-gJtcnSKmVLJ26IjQ2RNDR4UkoV04-4LqIr-wcfPVTTAQ-qAMZ2R66QGdyfr-KWHpRJU4UTO1hiGm9XwDkS8rdYfxfwX0A1Bxl6ZqgbPYII1Uxx8ajtaepmKQBrR172ZOwm5QXkfeIyT46vZmoeF_9ePMhZyvBG_dh0aaqaebBmcmnBg6hMt7UBXN1Jm1ZXRERTMULTqpUNutYu-_Aoow6mv7UMxve1Vs9RCA_OA_GriDXsUqlJLKXsV_xIU2fWEfNRQIIjCptcn0DhXS-WJMDkxGWYb4_mizo_R05X--IYzsKX4lueUTyevyGwZ73t1IPoWei7qAmjIOHMj9t6tFAPUm_TlY2BwwEKozq4abicgRTZKZlWVTKwegqr_gwRT7HLui7rsgt0_0B8dj3vAJ9RRsDO6KnNyMpi2RkKXOD75BhZM4UsR4VhCmBI_nWmICZ0Kxwvkucn7zYI-7gyKSY2l7rWKLaHkqLr0aUdOf5NXg_E90Dz020tGurog2Dp-qFp_bgQ-jKTs3Ref6PflwkAQsn9TQs7gQrds9wvmxPSqLkSSdz0wsmYvLLM05DxzPOVxGOU6-0ABlwlXjQZkjDEXjc48CpZAk2QpQ7yYCEBvrrqyF49a1O6MN94w99YYR0neQdnjcpqeBe3rJ7g1INcvA.CwcGBC7XOCHkaUwqGT2EOQ')
+        const res = await axios.post('https://connect.reapit.cloud/token', formData, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Cookie': 'XSRF-TOKEN=45fd3c33-e485-48c8-a5a6-d65313cefae0'
+            }
+        })
+        return res.data.access_token;
+    }
+    catch (err) {
+        console.log(err);
+    }
+}
+
 
 // ? to be tested
 async function createNewNegotiator(body){
+    const Token = await loginFromRefreshToken();
+    // var config = {
+    //     method: 'post',
+    //     maxBodyLength: Infinity,
+    //     url: `${process.env.master_url}`,
+    //     data:{
+    //         config: {
+    //             method: 'post',
+    //             headers: {
+    //                 'accept': 'application/json',
+    //                 'api-version': '2020-01-31',
+    //                 'Authorization': `Bearer ${process.env.REAPIT_TOKEN}`,
+    //                 'Reapit-Customer': 'HAH'
+    //             },
+    //             url: 'https://platform.reapit.cloud/negotiators/',
+    //             data: body
+    //         }
+            
+    //     }
+    // }
     var config = {
         method: 'post',
-        maxBodyLength: Infinity,
-        url: `${process.env.master_url}`,
-        data:{
-            config: {
-                method: 'post',
-                headers: {
-                    'accept': 'application/json',
-                    'api-version': '2020-01-31',
-                    'Authorization': `Bearer ${process.env.REAPIT_TOKEN}`,
-                    'Reapit-Customer': 'HAH'
-                },
-                url: 'https://platform.reapit.cloud/negotiators/',
-                data: body
-            }
-        }
+        headers: {
+            'accept': 'application/json',
+            'api-version': '2020-01-31',
+            'Authorization': `Bearer ${Token}`,
+            'Reapit-Customer': 'HAH'
+        },
+        url: 'https://platform.reapit.cloud/negotiators/',
+        data: body
     }
+
     
     try {
         const response = await axios(config);
@@ -912,8 +946,25 @@ async function createNewSource(body){
                 }
             }
         }
+
+        config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'https://platform.reapit.cloud/sources/',
+            headers: { 
+                'Content-Type': 'application/json-patch+json',
+                'accept': 'application/json', 
+                'api-version': '2020-01-31', 
+                'Authorization': `Bearer eyJraWQiOiJFXC9TcnVuTzVCR0xBMk1yT3phY2RjWFkwVVdqRVB1cVB5N3hIb1FWbnJGdz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI3MmRjZGViZC05NGRkLTQ1ZjItYWIwMC03YmU3OWRiOTExZTgiLCJjb2duaXRvOmdyb3VwcyI6WyJGb3VuZGF0aW9uc0RldmVsb3BlciIsIkZvdW5kYXRpb25zRGV2ZWxvcGVyQWRtaW4iXSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmV1LXdlc3QtMi5hbWF6b25hd3MuY29tXC9ldS13ZXN0LTJfZVE3ZHJlTnpKIiwidmVyc2lvbiI6MiwiY2xpZW50X2lkIjoiNGw2ajB1bnFvbDRrMDJic2w2cTg5b2RlbTUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImFnZW5jeUNsb3VkXC9sYW5kbG9yZHMucmVhZCBhZ2VuY3lDbG91ZFwvb2ZmaWNlcy53cml0ZSBhZ2VuY3lDbG91ZFwvb2ZmZXJzLnJlYWQgYWdlbmN5Q2xvdWRcL3Byb3BlcnRpZXMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3Rhc2tzLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLnJlYWQgYWdlbmN5Q2xvdWRcL2lkZW50aXR5Y2hlY2tzLndyaXRlIGFnZW5jeUNsb3VkXC9rZXlzLnJlYWQgYWdlbmN5Q2xvdWRcL2xhbmRsb3Jkcy53cml0ZSBhZ2VuY3lDbG91ZFwvY29udmV5YW5jaW5nLndyaXRlIGFnZW5jeUNsb3VkXC9lbnF1aXJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvc291cmNlcy53cml0ZSBvcGVuaWQgcHJvZmlsZSBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2FwcGxpY2FudHMucmVhZCBhZ2VuY3lDbG91ZFwvbmVnb3RpYXRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvdmVuZG9ycy53cml0ZSBhZ2VuY3lDbG91ZFwvaW52b2ljZXMucmVhZCBhZ2VuY3lDbG91ZFwvam91cm5hbGVudHJpZXMucmVhZCBhZ2VuY3lDbG91ZFwvY29tcGFuaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9wcm9wZXJ0aWVzLnJlYWQgYWdlbmN5Q2xvdWRcL3ZlbmRvcnMucmVhZCBhZ2VuY3lDbG91ZFwvY29udGFjdHMucmVhZCBhZ2VuY3lDbG91ZFwvZG9jdW1lbnRzLndyaXRlIGFnZW5jeUNsb3VkXC90YXNrcy53cml0ZSBhZ2VuY3lDbG91ZFwvdGVuYW5jaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9jb21wYW5pZXMucmVhZCBhZ2VuY3lDbG91ZFwvZW5xdWlyaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9jb252ZXlhbmNpbmcucmVhZCBhZ2VuY3lDbG91ZFwva2V5cy53cml0ZSBhZ2VuY3lDbG91ZFwvd29ya3NvcmRlcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2RvY3VtZW50cy5yZWFkIGFnZW5jeUNsb3VkXC9vZmZlcnMud3JpdGUgYWdlbmN5Q2xvdWRcL2pvdXJuYWxlbnRyaWVzLndyaXRlIGFnZW5jeUNsb3VkXC9hcHBvaW50bWVudHMud3JpdGUgYWdlbmN5Q2xvdWRcL3RlbmFuY2llcy5yZWFkIGFnZW5jeUNsb3VkXC90cmFuc2FjdGlvbnMud3JpdGUgZW1haWwgYWdlbmN5Q2xvdWRcL2FyZWFzLndyaXRlIGFnZW5jeUNsb3VkXC9yZWZlcnJhbHMud3JpdGUgYWdlbmN5Q2xvdWRcL3JlZmVycmFscy5yZWFkIGFnZW5jeUNsb3VkXC9jb250YWN0cy53cml0ZSBvcmdhbmlzYXRpb25zXC91c2Vycy5yZWFkIGFnZW5jeUNsb3VkXC93b3Jrc29yZGVycy5yZWFkIGFnZW5jeUNsb3VkXC9vZmZpY2VzLnJlYWQgYWdlbmN5Q2xvdWRcL2FwcG9pbnRtZW50cy5yZWFkIGFnZW5jeUNsb3VkXC90cmFuc2FjdGlvbnMucmVhZCIsImF1dGhfdGltZSI6MTcxNTQ5OTAwNSwiZXhwIjoxNzE1NjIxNTQ4LCJpYXQiOjE3MTU2MTc5NDgsImp0aSI6ImUxMjFmZmZhLWU5MjktNDUxOC1iODJhLTI0ZTg4YTE2NzNmYiIsInVzZXJuYW1lIjoiNzJkY2RlYmQtOTRkZC00NWYyLWFiMDAtN2JlNzlkYjkxMWU4In0.MM_RiKpQg4Sq4OeJMPXOleEjUOYvQkLIg0YZc1-K8MjMz5eIOPC5eRyu8Ze32DtKVtyiDQOj5oUSX9U3jTKLAIauHwLMqsjqvbtQ-jHMDAfNOwYUO6y6N8fIWVNUUvKQF6WvJvOjh6cffAxhUd5jRU4YbdhI4vTMJu6kbOyI1v-zPpkIB66VZXGE9UaEdAdyxw8IJ56gWfYWL5G3t05KWnIXKAlCaVFMbYucpvnHhI3Qpa1XdqZ-dvYdRLt2I_rcow-NNuxRHyWKFb97COuFTBahZB4BjoNNqllF3jY-D3tjYYYWL03Ypg-w8GdFsqTW0pycQrXqn6pdze41AGABYw`,
+                'Reapit-Customer': 'HAH'
+            },
+            data : body
+        }
+        // if status 500 then resend call
+        console.log("new conf -------------" + JSON.stringify(config));
         //console.log(data);
         const response = await axios(config);
+        console.log("this is the response ------------> " + response.data);
         console.log(response.headers.location);
         var id = response.headers.location.split("/")
         return id[id.length - 1];
